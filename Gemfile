@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'bundler'
 gem 'dotenv'
+gem 'fileutils'
 gem 'pg'
 gem 'puma'
 gem 'rack'
