@@ -9,6 +9,6 @@ namespace :db do
       Sequel::Migrator.run(db, 'db/migrations', target: version)
     end
 
-    puts 'Migrations completed'
+    puts '🎉 Migrations completed'
   end
 end
