@@ -32,11 +32,20 @@ class App < Application
   end
 
   post '/ips/:id/enable' do
+    ip = Ip.first!(id: params[:id].to_i)
+    ip.update(enabled: true)
+    status 204
   end
 
   post '/ips/:id/disable' do
+    ip = Ip.first!(id: params[:id].to_i)
+    ip.update(enabled: false)
+    status 204
   end
 
   delete '/ips/:id' do
+    ip = Ip.first!(id: params[:id].to_i)
+    ip.destroy
+    status 204
   end
 end

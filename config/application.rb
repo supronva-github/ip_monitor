@@ -13,4 +13,9 @@ class Application < Sinatra::Base
     status 400
     ErrorResponseBlueprint.render({ code: 'bad_request', message: 'Invalid JSON format' })
   end
+
+  error Sequel::NoMatchingRow do
+    status 404
+    ErrorResponseBlueprint.render({ code: 'not_found', message: 'Resource not found' })
+  end
 end
