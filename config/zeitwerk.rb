@@ -5,6 +5,7 @@ loader.push_dir(File.expand_path('../lib', __dir__))
 loader.collapse([
                   File.expand_path('../lib/model', __dir__),
                   File.expand_path('../lib/service', __dir__),
-                  File.expand_path('../lib/serializers', __dir__)
+                  File.expand_path('../lib/blueprints', __dir__),
+                  File.expand_path('../lib/contracts', __dir__)
                 ])
 loader.setup
