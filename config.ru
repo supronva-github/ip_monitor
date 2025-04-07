@@ -2,4 +2,4 @@
 
 require './app'
 
-run Application
+run App
