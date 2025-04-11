@@ -5,9 +5,9 @@ Sequel.migration do
     create_table :ips do
       primary_key :id
       column :ip_address, :inet, null: false
-      Boolean :enabled, default: false
-      DateTime :created_at
-      DateTime :updated_at
+      column :enabled, :boolean, default: false
+      column :created_at, :timestamp
+      column :updated_at, :timestamp
     end
 
     add_index :ips, :ip_address, unique: true
