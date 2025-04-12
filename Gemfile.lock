@@ -1,13 +1,32 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (8.0.2)
+      base64
+      benchmark (>= 0.3)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.3.1)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
+      minitest (>= 5.1)
+      securerandom (>= 0.3)
+      tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
     ast (2.4.3)
     base64 (0.2.0)
+    benchmark (0.4.0)
     bigdecimal (3.1.9)
     blueprinter (1.1.2)
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
+    connection_pool (2.5.0)
+    cronex (0.15.0)
+      tzinfo
+      unicode (>= 0.4.4.5)
     dotenv (3.1.7)
+    drb (2.2.1)
     dry-configurable (1.3.0)
       dry-core (~> 1.1)
       zeitwerk (~> 2.6)
@@ -43,13 +62,23 @@ GEM
       dry-initializer (~> 3.2)
       dry-schema (~> 1.14)
       zeitwerk (~> 2.6)
+    et-orbi (1.2.11)
+      tzinfo
     fileutils (1.7.3)
+    fugit (1.11.1)
+      et-orbi (~> 1, >= 1.2.11)
+      raabro (~> 1.4)
+    globalid (1.2.1)
+      activesupport (>= 6.1)
+    i18n (1.14.7)
+      concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     json (2.10.2)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     logger (1.7.0)
     method_source (1.1.0)
+    minitest (5.25.5)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
     net-ping (2.0.8)
@@ -65,6 +94,7 @@ GEM
       method_source (~> 1.0)
     puma (6.6.0)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.12)
     rack-protection (4.1.1)
@@ -76,6 +106,8 @@ GEM
       rack (>= 3.0.0)
     rainbow (3.1.1)
     rake (13.2.1)
+    redis-client (0.24.0)
+      connection_pool
     regexp_parser (2.10.0)
     rubocop (1.75.2)
       json (~> 2.3)
@@ -93,8 +125,20 @@ GEM
       prism (~> 1.4)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    securerandom (0.4.1)
     sequel (5.91.0)
       bigdecimal
+    sidekiq (8.0.2)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
+    sidekiq-cron (2.2.0)
+      cronex (>= 0.13.0)
+      fugit (~> 1.8, >= 1.11.1)
+      globalid (>= 1.0.1)
+      sidekiq (>= 6.5.0)
     sinatra (4.1.1)
       logger (>= 1.6.0)
       mustermann (~> 3.0)
@@ -105,9 +149,13 @@ GEM
     sinatra-strong-params (0.1.0)
       sinatra (>= 1.4.0)
     tilt (2.6.0)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    unicode (0.4.4.5)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
+    uri (1.0.3)
     zeitwerk (2.7.2)
 
 PLATFORMS
@@ -128,6 +176,8 @@ DEPENDENCIES
   rake
   rubocop
   sequel
+  sidekiq
+  sidekiq-cron
   sinatra
   sinatra-strong-params
   zeitwerk
