@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'blueprinter'
 gem 'bundler'
+gem 'concurrent-ruby'
 gem 'dotenv'
 gem 'dry-validation'
 gem 'fileutils'

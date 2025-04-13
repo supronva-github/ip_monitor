@@ -6,7 +6,7 @@ class IpCheckWorker
   include Sidekiq::Worker
 
   def perform
-    Ip.where(enabled: true).select_map([:id, :ip_address]).each_slice(BATCH_SIZE) do |batch|
+    Ip.where(enabled: true).select_map(%i[id ip_address]).each_slice(BATCH_SIZE) do |batch|
       IpBatchCheckJob.perform_async(batch)
     end
   end

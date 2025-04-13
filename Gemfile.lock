@@ -164,6 +164,7 @@ PLATFORMS
 DEPENDENCIES
   blueprinter
   bundler
+  concurrent-ruby
   dotenv
   dry-validation
   fileutils
