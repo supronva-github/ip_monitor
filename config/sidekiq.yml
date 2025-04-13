@@ -1,4 +1,5 @@
 schedule:
   ip_check:
-    cron: "* * * * *"
-    class: "IpCheckWorker"
+    cron: '* * * * *'
+    class: IpCheckWorker
+    queue: default
