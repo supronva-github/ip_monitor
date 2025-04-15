@@ -13,8 +13,9 @@ class PingCheckerService
     thread_pool = create_thread_pool
     promises = create_promises(thread_pool)
     results = execute_promises(promises)
-    shutdown_thread_pool(thread_pool)
     results
+  ensure
+    shutdown_thread_pool(thread_pool)
   end
 
   private
