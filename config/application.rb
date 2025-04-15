@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require 'sinatra/strong-params'
+require_relative 'initializers/dotenv'
+require_relative 'initializers/bundler'
+require_relative 'application'
+require_relative 'sidekiq'
+require_relative 'zeitwerk'
 
 class Application < Sinatra::Base
   configure do
