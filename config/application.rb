@@ -3,9 +3,10 @@
 require 'sinatra/strong-params'
 require_relative 'initializers/dotenv'
 require_relative 'initializers/bundler'
+require_relative 'database'
+require_relative 'zeitwerk'
 require_relative 'application'
 require_relative 'sidekiq'
-require_relative 'zeitwerk'
 
 class Application < Sinatra::Base
   configure do

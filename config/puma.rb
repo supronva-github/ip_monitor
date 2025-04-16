@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'application'
-require_relative 'database'
 
 workers Integer(ENV['WEB_CONCURRENCY'] || 2)
 
