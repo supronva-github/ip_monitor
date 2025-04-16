@@ -1,0 +1,25 @@
+erDiagram
+    IPS {
+        int id PK
+        inet ip_address
+        boolean enabled
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    IP_CHECKS {
+        int id PK
+        int ip_id FK
+        float rtt
+        timestamp created_at
+    }
+
+    IP_STATUS_CHANGES {
+        int id PK
+        int ip_id FK
+        boolean status
+        timestamp created_at
+    }
+
+    IPS ||--o{ IP_CHECKS : "has many"
+    IPS ||--o{ IP_STATUS_CHANGES : "has many"
