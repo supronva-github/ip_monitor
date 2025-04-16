@@ -155,6 +155,16 @@ curl -u admin:admin -X DELETE http://localhost:9292/ips/1
 curl -u admin:admin http://localhost:9292/sidekiq
 ```
 
+## Ограничения
+Запрещены следующие диапазоны IP-адресов:
+- `0.0.0.0/8`
+- `127.0.0.0/8`
+- `169.254.0.0/16`
+- `224.0.0.0/4`
+- `255.255.255.255`
+
+PS: [IANA Number Resources](https://www.iana.org/numbers)
+
 ## Переменные окружения
 
 - `DB_HOST`: хост базы данных (по умолчанию: localhost)
@@ -163,6 +173,7 @@ curl -u admin:admin http://localhost:9292/sidekiq
 - `DB_PASSWORD`: пароль базы данных
 - `DB_NAME`: имя базы данных
 - `REDIS_URL`: URL Redis (по умолчанию: redis://localhost:6379/0)
+- `FORBIDDEN_IP_RANGES`: список запрещенных диапазонов IP-адресов
 
 ## Разработка
 
