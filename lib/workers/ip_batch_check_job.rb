@@ -3,23 +3,15 @@
 class IpBatchCheckJob
   include Sidekiq::Worker
 
-  def perform(batch)
-    id_map = build_id_map(batch)
-    ip_addresses = extract_ip_addresses(batch)
-    results = check_ips(ip_addresses)
+  def perform(ip_ids)
+    ips = Ip.where(id: ip_ids).select_map(%i[id ip_address])
+    id_map = ips.to_h.invert
+    results = check_ips(ips.map(&:last))
     records = prepare_records(results, id_map)
     save_records(records)
   end
 
   private
-
-  def build_id_map(batch)
-    batch.to_h.invert
-  end
-
-  def extract_ip_addresses(batch)
-    batch.map(&:last)
-  end
 
   def check_ips(ip_addresses)
     PingCheckerService.new(ip_addresses).call
